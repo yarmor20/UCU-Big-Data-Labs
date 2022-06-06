@@ -9,7 +9,7 @@ spark = SparkSession.builder.master("local[*]").appName("lab9").getOrCreate()
 spark.sparkContext.setLogLevel("ERROR")
 
 
-# ======================== TASK 2 ========================
+# ======================== TASK 1 ========================
 
 def top_trending_videos(videos_df, limit=0):
     """
