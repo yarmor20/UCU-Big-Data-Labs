@@ -1,0 +1,21 @@
+version: '1'
+
+services:
+  zookeeper-server:
+    image: bitnami/zookeeper:latest
+    networks:
+      - kafka-network
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+  kafka-server:
+    image: bitnami/kafka:latest
+    networks:
+      - kafka-network
+    environment:
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper-server:2181
+
+
+networks:
+  kafka-network:
+    name: kafka-network
